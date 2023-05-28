@@ -16,7 +16,7 @@ function setup() {
   canvas.id('sketch-container');
 
 
-  background(225);
+  background(255);
 
 
 }

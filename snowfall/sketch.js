@@ -30,10 +30,10 @@ function preload() {
 
 function setup() {
 
- v  var canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.id('sketch-container');
 
-  
+
   // background(25);
   gravity = createVector(0, 0.03);
 
@@ -63,9 +63,9 @@ function draw() {
 
 
 
-  mover.update();
-  mover.display();
-  mover.checkEdges();
+  // mover.update();
+  // mover.display();
+  // mover.checkEdges();
 
 
 
