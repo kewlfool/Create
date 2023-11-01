@@ -1,6 +1,4 @@
-
 function getRandomSize() {
-
   let r = randomGaussian(15, 5);
   return abs(r);
 
@@ -9,22 +7,15 @@ function getRandomSize() {
   //   let r1 = random(1);
   //   let r2 = random(1);
 
-
   //   if (r2 > r1) {
   //     return r1 * 30;
   //   }
 
-
   // }
 }
 
-
-
 class Snowflake {
-
-
   constructor(img) {
-
     let x = random(width);
     let y = random(-100, -10);
     this.pos = createVector(x, y);
@@ -33,17 +24,15 @@ class Snowflake {
     this.r = getRandomSize();
     this.img = img;
     this.xoff = 0;
-    this.direction = (random(1) > 0.5) ? 1 : -1;
+    this.direction = random(1) > 0.5 ? 1 : -1;
     this.angle = random(TWO_PI);
-
-
   }
 
   applyForce(force) {
     // paralex effect hack
 
     let f = force.copy();
-    f.mult(this.r)
+    f.mult(this.r);
 
     // let f = force.copy();
     // f.div(this.mass);
@@ -51,7 +40,6 @@ class Snowflake {
   }
 
   update() {
-
     this.xoff = sin(this.angle) * this.r;
     this.vel.add(this.acc);
     this.vel.limit(this.r * 0.2);
@@ -66,12 +54,7 @@ class Snowflake {
       this.pos.x = -this.r;
     }
 
-
-
-
-    this.angle += this.direction * this.vel.mag() / 150;
-
-
+    this.angle += (this.direction * this.vel.mag()) / 150;
   }
 
   render() {
@@ -83,18 +66,13 @@ class Snowflake {
     imageMode(CENTER);
 
     translate(this.pos.x + this.xoff, this.pos.y);
-    rotate(this.angle)
+    rotate(this.angle);
     image(this.img, 0, 0, this.r, this.r);
 
     pop();
-
   }
-
-
-
 
   offScreen() {
-    return (this.pos.y > height + this.r);
+    return this.pos.y > height + this.r;
   }
-
 }

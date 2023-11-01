@@ -1,5 +1,3 @@
-
-
 let snow = [];
 
 let gravity;
@@ -14,63 +12,39 @@ let mover;
 
 let acc = 0.05;
 
-
-
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
 function preload() {
-  file = loadImage('flakes32.png')
+  file = loadImage("flakes32.png");
 }
 
-
-
-
-
 function setup() {
-
   let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.id('sketch-container');
-
+  canvas.id("sketch-container");
 
   // background(25);
   gravity = createVector(0, 0.03);
-
-
 
   mover = new Mover();
 
   for (let x = 0; x < file.width; x += 32) {
     for (let y = 0; y < file.height; y += 32) {
-
       let img = file.get(x, y, 32, 32);
 
       textures.push(img);
-
     }
-
   }
-
 }
-
-
-
 
 function draw() {
   background(10);
   // image(file, 0, 0);
 
-
-
   // mover.update();
   // mover.display();
   // mover.checkEdges();
-
-
-
-
-
 
   if (keyIsDown(LEFT_ARROW)) {
     mover.acceleration.x = -acc;
@@ -85,8 +59,6 @@ function draw() {
     mover.acceleration.y = acc;
   }
 
-
-
   let wAngle = noise(xoff) * TWO_PI * 2;
 
   let wind = p5.Vector.fromAngle(wAngle);
@@ -94,7 +66,6 @@ function draw() {
 
   let wx = map(mouseX, 0, width, -0.02, 0.02);
   wind = createVector(wx, 0);
-
 
   design = random(textures);
   snow.push(new Snowflake(design));
@@ -110,10 +81,7 @@ function draw() {
 
   for (let i = snow.length - 1; i >= 0; i--) {
     if (snow[i].offScreen()) {
-
       snow.splice(i, 1);
     }
   }
 }
-
-

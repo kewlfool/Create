@@ -26,16 +26,11 @@ class Mover {
   }
 
   checkEdges() {
-
     // var buffer = r / 2;
     // if (x > width + buffer) x = -buffer;
     // else if (x < -buffer) x = width + buffer;
     // if (y > height + buffer) y = -buffer;
     // else if (y < -buffer) y = height + buffer;
-
-
-
-
 
     if (this.position.x > width + this.radius) {
       this.position.x = -this.radius;
@@ -52,5 +47,4 @@ class Mover {
       // this.velocity.y *= -1;
     }
   }
-
 }
