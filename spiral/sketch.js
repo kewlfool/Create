@@ -17,8 +17,11 @@ function draw() {
 
   translate(windowWidth / 2, windowHeight / 2);
 
+  var fader =
+    1 - (Math.abs(mouseX - windowWidth / 2) / (windowWidth / 2)) * 0.5;
+
   for (let i = 0; i < dots.length; i++) {
-    dots[i].update();
+    dots[i].update(fader);
     dots[i].show();
   }
 }

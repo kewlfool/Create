@@ -148,7 +148,8 @@
                 <div class="border-top"></div>
             </div>
 
-            <a href="https://kewlfool.github.io/Create/randomwalkers/" class="permalink">
+            <!-- <a href="https://kewlfool.github.io/Create/randomwalkers/" class="permalink"> -->
+            <a href="randomwalkers/" class="permalink">
                 <div class="desktop-2 mobile-full columns">
                     <div class="item first-row">
                         <h3>Random Walkers</h3>
@@ -159,7 +160,7 @@
                 </div>
             </a>
 
-            <a href="https://kewlfool.github.io/Create/snowfall/" class="permalink">
+            <a href="snowfall/" class="permalink">
                 <div class="desktop-2 mobile-full columns">
                     <div class="item first-row">
                         <h3>Snowfall</h3>
@@ -169,7 +170,7 @@
                     </div>
                 </div>
             </a>
-
+         
 
 
 

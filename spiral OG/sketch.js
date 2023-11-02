@@ -1,6 +1,6 @@
 "use strict";
 
-var count = 10;
+var count = 100;
 var radius = 180;
 
 var dots = [];
@@ -38,19 +38,19 @@ function Dot(i) {
     Math.floor(Math.random() * height + (width - height) / 2),
     Math.floor(Math.random() * height)
   );
-  this.currentPos = this.randomPos.copy();
+  this.pos = this.randomPos.copy();
   this.size = Math.floor(Math.random() * 18 + 1);
   this.fillColor = color(Math.random() * 50 + 200);
 }
 
 Dot.prototype.update = function (fader) {
-  this.currentPos.x = lerp(this.randomPos.x, this.circlePos.x, fader);
-  this.currentPos.y = lerp(this.randomPos.y, this.circlePos.y, fader);
+  this.pos.x = lerp(this.randomPos.x, this.circlePos.x, fader);
+  this.pos.y = lerp(this.randomPos.y, this.circlePos.y, fader);
   // this.size = Math.floor(Math.sin(frameCount * 0.01) * 20 + 5);
 };
 
 Dot.prototype.render = function () {
   stroke(0);
   fill(this.fillColor);
-  ellipse(this.currentPos.x, this.currentPos.y, this.size, this.size);
+  ellipse(this.pos.x, this.pos.y, this.size, this.size);
 };
