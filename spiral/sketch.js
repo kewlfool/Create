@@ -13,9 +13,7 @@ function setup() {
 }
 
 function draw() {
-  // background(bgcolor);
-
-  translate(windowWidth / 2, windowHeight / 2);
+  background(bgcolor);
 
   var fader =
     1 - (Math.abs(mouseX - windowWidth / 2) / (windowWidth / 2)) * 0.5;
@@ -23,7 +21,10 @@ function draw() {
   for (let i = 0; i < dots.length; i++) {
     dots[i].update(fader);
     dots[i].show();
+    // dots[i].angle += 0.01;
   }
+
+  // translate(-windowWidth / 2, -windowHeight / 2);
 }
 
 function windowResized() {

@@ -1,20 +1,20 @@
 class Particle {
   constructor() {
     this.posC = createVector(0, 0);
-    // this.posR = p5.Vector.random2D();
+    this.pos = createVector(random(width), random(height));
+    // this.pos = this.posR.copy();
 
-    this.posR = createVector(random(width), random(height));
-    this.pos = this.posR.copy();
+    this.r = 250;
+    this.angle = random(TWO_PI);
+    this.posC.x = this.r * cos(this.angle);
+    this.posC.y = this.r * sin(this.angle);
+    this.posR = p5.Vector.random2D();
+
     // this.fader = fade;
     // this.posR = createVector(
     //   Math.floor(Math.random() * height + (width - height) / 2),
     //   Math.floor(Math.random() * height)
     // );
-
-    // this.r1 = random(30, 300);
-    this.r1 = 150;
-    // this.r = 250;
-    this.angle = random(TWO_PI);
 
     // this.posC.x = this.r1 * cos(this.angle);
     // this.posC.y = this.r1 * sin(this.angle);
@@ -25,18 +25,26 @@ class Particle {
   }
 
   update(fade) {
-    this.pos.x = lerp(this.posR.x, this.posC.x, fade);
-    this.pos.y = lerp(this.posR.y, this.posC.y, fade);
-
-    this.posC.x = this.r1 * cos(this.angle);
-    this.posC.y = this.r1 * sin(this.angle);
+    this.posC.x = this.r * cos(this.angle);
+    this.posC.y = this.r * sin(this.angle);
     this.angle += 0.01;
+    // this.pos.x = lerp(this.posR.x, this.posC.x, fade);
+    // this.pos.y = lerp(this.posR.y, this.posC.y, fade);
   }
 
   show() {
+    push();
+
+    translate(windowWidth / 2, windowHeight / 2);
     strokeWeight(1);
     stroke(252, 0, 0);
     fill(252, 238, 33);
+    circle(this.posC.x, this.posC.y, this.size);
+    pop();
+    strokeWeight(1);
+    stroke(252, 2000, 0);
+    fill(252, 28, 33);
+
     circle(this.pos.x, this.pos.y, this.size);
   }
 

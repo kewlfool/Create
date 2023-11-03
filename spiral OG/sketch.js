@@ -1,6 +1,6 @@
 "use strict";
 
-var count = 100;
+var count = 150;
 var radius = 180;
 
 var dots = [];
