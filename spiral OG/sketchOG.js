@@ -15,9 +15,8 @@ function setup() {
 
 function draw() {
   background(255);
-  translate(windowWidth / 2, windowHeight / 2);
-  rotate(frameCount * 0.011);
-  translate(-windowWidth / 2, -windowHeight / 2);
+
+  rotateAll();
   var fader =
     1 - (Math.abs(mouseX - windowWidth / 2) / (windowWidth / 2)) * 0.5;
   for (var i = 0; i < count; i++) {
@@ -28,10 +27,10 @@ function draw() {
 
 function Dot(i) {
   var circleX = Math.floor(
-    Math.cos((i * 2 * Math.PI) / count) * radius + windowWidth / 2
+    cos((i * 2 * Math.PI) / count) * radius + windowWidth / 2
   );
   var circleY = Math.floor(
-    Math.sin((i * 2 * Math.PI) / count) * radius + windowHeight / 2
+    sin((i * 2 * Math.PI) / count) * radius + windowHeight / 2
   );
   this.circlePos = createVector(circleX, circleY);
   this.randomPos = createVector(
@@ -54,3 +53,11 @@ Dot.prototype.render = function () {
   fill(this.fillColor);
   ellipse(this.pos.x, this.pos.y, this.size, this.size);
 };
+
+function rotateAll() {
+  // rotate everything forever with framecoiunt variable
+
+  translate(windowWidth / 2, windowHeight / 2);
+  rotate(frameCount * 0.01);
+  translate(-windowWidth / 2, -windowHeight / 2);
+}

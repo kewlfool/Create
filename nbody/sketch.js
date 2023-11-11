@@ -5,14 +5,14 @@ let sun;
 
 function setup() {
   createCanvas(800, 800);
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 5; i++) {
     let pos = p5.Vector.random2D();
     let vel = pos.copy();
     // let vel = p5.Vector.random2D();
     vel.setMag(5);
     // vel.setMag(random(10, 15));
     // pos.setMag(random(200, 350));
-    vel.rotate(PI / 2);
+    // vel.rotate(PI / 2);
     let m = 10;
     // let m = random(10, 15);
     movers[i] = new Mover(pos.x, pos.y, vel.x, vel.y, m);

@@ -89,7 +89,10 @@
 		// Create a mobile menu wrapper and copy contents from the original menu
 		if( this.options.mobileToggle == true ) {
 
-			$('body').css({"position": "relative"}).prepend('<div id=' + mobileWrapperId + '><div class="container"><div class="desktop-12 columns"><ul id="menu-mobile"></ul></div></div></div>'); 
+//			$('body').css({"position": "relative"}).prepend('<div id=' + mobileWrapperId + '><div class="container"><div class="desktop-12 columns"><ul id="menu-mobile"></ul></div></div></div>'); 
+            
+            $('.topbar').append('<div id=' + mobileWrapperId + '><div class="container"><div class=""><ul id="menu-mobile"></ul></div></div></div>');  
+            
 			$(mobileMenu).html(menuContent).before('<div id="' + toggleElementId + '">' + menuOnCollapseText + '</div>');
 
 			// When the user clicks on the toggle element
@@ -129,5 +132,7 @@
 			}
 		});
 	}
+    
+   
 
 })( jQuery, window, document );

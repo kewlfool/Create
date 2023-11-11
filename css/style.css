@@ -893,7 +893,7 @@ a:hover {
 
 .socialbtns .fa:hover {
     /*    color: #FFF;*/
-    color: #000;
+    color: #000000;
     /*    background-color: #000;*/
     /*    border: 1px solid #000;*/
 }
@@ -962,7 +962,7 @@ a:hover {
 
 
 .geometry {
-    z-index: 3;
+    z-index: -30;
     position: fixed;
 }
 

@@ -76,11 +76,8 @@ function draw() {
   let xoff = 0;
 
   for (let x = 0; x < width; x++) {
-    xoff += inc;
     let yoff = 0;
     for (let y = 0; y < height; y++) {
-      yoff += inc;
-
       // c = random(255);
       // c = noise(xoff, yoff, zoff) * 255;
       let n = noises.noise3D(xoff, yoff, zoff);
@@ -91,7 +88,10 @@ function draw() {
       pixels[index + 1] = c;
       pixels[index + 2] = c;
       pixels[index + 3] = 255;
+
+      yoff += inc;
     }
+    xoff += inc;
   }
   zoff += zinc;
 

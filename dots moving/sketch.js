@@ -9,10 +9,10 @@ let noise;
 
 let n = 25; // number of white dots
 let numberOfDotsOnCurve = 100; // connection drawing quality
-let noiseLoopRadius = 0.2; // noise circle radius
-let globalDelayFactor = 4.2; // delay effect parameter
-let swmax = 1.7; // maximum stroke weight
-let D = 150; // global displacement intensity factor
+let noiseLoopRadius = 0.5; // noise circle radius
+let globalDelayFactor = 2; // delay effect parameter
+let swmax = 2.2; // maximum stroke weight
+let D = 100; // global displacement intensity factor
 
 let arrays = [];
 
@@ -34,9 +34,10 @@ function draw() {
   if (!recording) {
     t = (mouseX * 1.0) / width;
     c = (mouseY * 1.0) / height;
-    if (mouseIsPressed) {
-      console.log(c);
-    }
+
+    console.log(t);
+    console.log(c);
+
     draw_();
   } else {
     for (let i = 0; i < width * height; i++) {
@@ -132,6 +133,7 @@ function draw_() {
 
       for (let k = 0; k <= numberOfDotsOnCurve; k++) {
         let q = map(k, 0, numberOfDotsOnCurve, 0, 1); // parameter in [0,1], indicates where we are on the connection curve
+        // let q = 0.5; // parameter in [0,1], indicates where we are on the connection curve
 
         // main trick here: interpolation between the positions of dots i and j,
         // but seeing them with more delay when further from them
@@ -151,52 +153,4 @@ function draw_() {
   }
 
   pop();
-}
-
-class Dot {
-  // polar coordinates
-  constructor() {
-    this.r = pow(random(1), 0.2) * 0.3 * width; // radius random distribution to have less dots near the center
-    this.theta = random(TWO_PI);
-    this.x0 = this.r * cos(this.theta);
-    this.y0 = this.r * sin(this.theta);
-    this.displacementFactor = map(
-      dist(this.x0, this.y0, 0, 0),
-      0,
-      0.3 * width,
-      3.4,
-      0
-    );
-    this.seed = random(10, 1000);
-  }
-
-  x(p) {
-    return (
-      this.x0 +
-      this.displacementFactor *
-        D *
-        noise.noise2D(
-          this.seed + noiseLoopRadius * cos(TWO_PI * p),
-          noiseLoopRadius * sin(TWO_PI * p)
-        )
-    );
-  }
-
-  y(p) {
-    return (
-      this.y0 +
-      this.displacementFactor *
-        D *
-        noise.noise2D(
-          2 * this.seed + noiseLoopRadius * cos(TWO_PI * p),
-          noiseLoopRadius * sin(TWO_PI * p)
-        )
-    );
-  }
-
-  show(p) {
-    stroke(255);
-    fill(255);
-    ellipse(this.x(p), this.y(p), 3, 3);
-  }
 }

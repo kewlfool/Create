@@ -47,9 +47,6 @@ class Particle {
 
     this.step = p5.Vector.random2D();
 
-    this.mouseV = createVector(mouseX, mouseY);
-    this.mouseV.normalize();
-
     this.prevPos = this.pos.copy();
     this.r = 0;
   }

@@ -4,8 +4,8 @@ class Particle {
 
     this.step = p5.Vector.random2D();
 
-    this.mouseV = createVector(mouseX, mouseY);
-    this.mouseV.normalize();
+    // this.mouseV = createVector(mouseX, mouseY);
+    // this.mouseV.normalize();
 
     this.prevPos = this.pos.copy();
     this.r = 0;
@@ -40,7 +40,6 @@ class Particle {
     // this.step.limit(this.maxspeed);
     // this.pos.add(this.step);
     // this.acc.mult(0);
-
     this.pos.add(this.step);
 
     let v = createVector(this.pos.x, this.pos.y);
@@ -58,9 +57,9 @@ class Particle {
     circle(this.pos.x, this.pos.y, 5);
     beginShape();
     for (let i = 0; i < this.history.length; i++) {
-      let tpos = this.history[i];
+      this.pos = this.history[i];
       // circle(tpos.x, tpos.y, i);
-      vertex(tpos.x, tpos.y);
+      vertex(this.pos.x, this.pos.y);
     }
     endShape();
 
