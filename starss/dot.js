@@ -63,7 +63,7 @@ function connect() {
       );
 
       let sw = constrain(
-        map(distanceToCenter, 0, 0.5 * width, swmax, 0),
+        map(distanceToCenter, 0, 0.3 * width, swmax, 0),
         0,
         swmax
       );
@@ -74,8 +74,8 @@ function connect() {
       // let delayFactor = 0;
       console.log(delayFactor);
 
-      for (let k = 0; k <= 10; k++) {
-        let q = map(k, 0, 10, 0, 1); // parameter in [0,1], indicates where we are on the connection curve
+      for (let k = 0; k <= numberOfDotsOnCurve; k++) {
+        let q = map(k, 0, numberOfDotsOnCurve, 0, 1); // parameter in [0,1], indicates where we are on the connection curve
         // let q = 0.9; // parameter in [0,1], indicates where we are on the connection curve
 
         // main trick here: interpolation between the positions of dots i and j,

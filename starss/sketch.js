@@ -3,10 +3,10 @@ let points = [];
 // let angle = 0;
 let noise = 0;
 let t = 0;
-let count = 2;
-let numberOfDotsOnCurve = 80; // connection drawing quality
+let count = 15;
+let numberOfDotsOnCurve = 150; // connection drawing quality
 let noiseLoopRadius = 0.51; // noise circle radius
-let globalDelayFactor = 0.33; // delay effect parameter
+let globalDelayFactor = 1; // delay effect parameter
 let swmax = 2.2; // maximum stroke weight
 let D = 100; // global displacement intensity factor
 

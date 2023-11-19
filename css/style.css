@@ -25,8 +25,7 @@
 --------------------------------------------------------------------------*/
 
 body {
-    /* color: #111; */
-    color:#666;
+
     /*font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 /*    font-family: "Roboto", sans-serif;*/
 /*    font-family: "Helvetica Neue", sans-serif;*/
@@ -167,7 +166,7 @@ h2
 }
 
 h3{
-   color:black; 
+   color:#21135C; 
     font-size: 16px;
     font-weight: bold;
 }
@@ -184,14 +183,14 @@ h6 {
 a,
 a:visited {
 /*     border-bottom: 1px dotted lightgray;  */
-    color: #333;
+    color: #21135C;
     text-decoration: none;
 /*    outline: 0;*/
 }
 
 a:hover,
 a:focus {
-    color: black;
+    color:#DD3367;
 /*    border-bottom: 1px solid black;  */
 }
 
@@ -211,14 +210,14 @@ p a:visited {
 
 /* Selection Highlighted Text */
 ::selection {
-    background: #333333;
-    color: white;
+    background: #21135C;
+    color: #F3F3F5;
     text-shadow: none;
 }
 
 ::-moz-selection {
-    background: #333333;
-    color: white;
+    background: #21135C;
+    color: #F3F3F5;
     text-shadow: none;
 }
 
@@ -247,36 +246,36 @@ strong {
 /* Colors */
 .font-color-primary {
     /* color: #333333; */
-    color: #000;
-    border-bottom: 1px dotted lightgray; 
+    color: #21135C;
+    border-bottom: 1px dotted #F3F3F5; 
 /*    border-bottom: 1px solid lightgray;*/
 
 }
 
 .font-color-primary:hover {
     
-    border-bottom: 1px solid black; 
+    border-bottom: 1px solid #21135C; 
 
 }
 
 .background-color-primary {
-    background: #333333;
+    background: #21135C;
 }
 
 .font-color-secondary {
-    color: #a33;
+    color: #DD3367;
 }
 
 .font-color-black {
-    color: black;
+    color: #21135C;
 }
 
 .font-color-white {
-    color: white;
+    color: #F3F3F5;
 }
 
 .background-color-white {
-    background: white;
+    background: #F3F3F5;
 }
 
 
@@ -341,8 +340,8 @@ thumbnail {
 button,
 .button,
 a.button {
-    color: white;
-    background: #000;
+    color: #F3F3F5;
+    background: #21135C;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
@@ -396,16 +395,16 @@ a.button:hover {
 button.black,
 .button.black,
 a.button.black {
-    color: white;
-    background: #000;
-    border-color: #111;
+    color: #F3F3F5;
+    background: #21135C;
+    border-color: #21135C;
 }
 
 button.black:hover,
 .button.black:hover,
 a.button.black:hover {
-    color: #000;
-    background: #111;
+    color: #21135C;
+    background: #21135C;
 }
 
 
@@ -537,7 +536,7 @@ span.required {
 }
 
 .sidebar.sticked {
-    background: white;
+    background: #F3F3F5;
     display: none;
     padding: 0 20px 20px 20px;
 }
@@ -638,13 +637,13 @@ span.required {
 .topbar {
     display: flex;
 /*    border: solid 3px yellow;*/
-    padding: 45px 20px 30px 20px;
+    padding: 20px;
 /*    padding-right: 20px*/
     
 }
 
 #header-site-title {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 500;
     height: 30px;
 /*    width: 30vw;*/
@@ -653,7 +652,7 @@ span.required {
 
 }
 #header-nav-wrapper{
-   margin-left: auto;
+   /* margin-left: auto; */
 /*    border: solid 3px green;  */
 }
 
@@ -662,7 +661,7 @@ span.required {
 ul#nav {
     font-size: 16px;
     line-height: 24px;
-/*    font-weight: bold;*/
+   
 /*    overflow: visible;*/
 /*    text-align: center;*/
 
@@ -671,7 +670,7 @@ ul#nav {
 
 @media screen and (min-width: 768px) and (max-width: 959px) {
     ul#nav {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 24px;
 
     }
@@ -679,7 +678,10 @@ ul#nav {
 
 @media screen and (max-width: 767px) {
     ul#nav {
-        display: none;
+        font-size: 16px;
+        line-height: 24px;
+        
+        /* display: none; */
 
     }
 }
@@ -698,16 +700,16 @@ ul#nav > li {
     zoom: 1;
     /*    width: 33.333333%;*/
     display: inline;
-    float: left;
+    float: right;
 /*    border: solid 1px blue;*/
 
 }
 
 ul#nav > li a {
-    color: #aaa;
+    color: #21135c;
     display: block;
 
-    margin: 0 10px;
+    margin: 0px 0px 0px 10px;
     
     /*border-bottom: 1px solid #f5f5f5;*/
 }
@@ -720,12 +722,12 @@ ul#nav > li a span.count {
 }
 
 ul#nav > li a:hover {
-    color: black;
-    border-bottom: none;
+    color: #DD3367;
+    /* border-bottom: none; */
 }
 
 ul#nav > li a:hover span.count {
-    color: red;
+    color: #DD3367;
 }
 
 ul#nav > li:hover,
@@ -736,14 +738,14 @@ ul#nav > li.hover {
 
 ul#nav > li:hover a,
 ul#nav > li.hover a {
-    color: black;
-        border-bottom: 1px solid black
+    color: #DD3367;
+        /* border-bottom: 1px solid black */
 /*    border-bottom: none;*/
 }
 
 ul#nav > li:hover a span.count,
 ul#nav > li.hover a span.count {
-    color: red;
+    color: #DD3367;
 }
 
 ul#nav > li:hover ul li:last-child > a,
@@ -755,7 +757,7 @@ ul#nav > li.hover ul li.last-child > a {
 
 ul#nav > li.hasChild:hover a,
 ul#nav > li.hasChild.hover a {
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #21135C;
 }
 
 ul#nav li ul {
@@ -809,7 +811,7 @@ ul#nav > li ul ul {
 
 #menu-mobile-wrapper #toggle-menu {
     cursor: pointer;
-    color: #222;
+    color: #c71717;
 /*    display: block;*/
     font-size: 0;
 /*    line-height: 25px;*/
@@ -862,14 +864,15 @@ a:hover {
 }
 
 .socialbtns{
-    padding: 20px 0px 30px 20px;
+    font-size: 13px;
+    /* padding: 20px 0px 30px 20px; */
 /*    border: solid red 1px;*/
 }
 .socialbtns ul,
 .socialbtns li {
-    margin: 0;
-    padding: 0px 10px 0px 0px;
-/*    border: solid purple 1px;*/
+    
+    padding: 0px 0px 0px 10px;
+   /* border: solid purple 1px; */
 }
 
 .socialbtns li {
@@ -880,7 +883,7 @@ a:hover {
 .socialbtns .fa {
     /*    width: 40px;*/
     /*    height: 28px;*/
-    color: #666;
+    color: #21135C;
     /*background-color: #FFF;*/
     /*    background: rgba(255, 255, 255, 0.5);*/
     /*    border: 1px solid #000;*/
@@ -893,7 +896,7 @@ a:hover {
 
 .socialbtns .fa:hover {
     /*    color: #FFF;*/
-    color: #000000;
+    color: #DD3367;
     /*    background-color: #000;*/
     /*    border: 1px solid #000;*/
 }
@@ -993,6 +996,19 @@ a:hover {
     line-height: 16px;
     position: relative;
     padding: 0px 0px 30px 0px;
+}
+
+#header {
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    background-color: #F3F3F5;
+
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0px;
 }
 
 #header h1 {
@@ -1271,7 +1287,7 @@ img:hover {
 }
 
 #works.stackgrid.images-only .item .box-desc h3 {
-    color: white;
+    color: #F3F3F5;
 }
 
 #works.stackgrid.images-only .nav-pages {
@@ -1403,7 +1419,7 @@ img:hover {
 
 .box-info h4 {
     font-size: 1em;
-    color:black;
+    color:#21135C;
     font-weight:480;
     
 /*    line-height: 2em;*/
@@ -1807,9 +1823,9 @@ section#cart .sidebar p.title-desc {
 #checkout input[type=password]:focus,
 #checkout textarea:focus,
 #checkout select:focus {
-    color: #000;
-    background: white;
-    border: 1px solid #000;
+    color: #21135C;
+    background: #F3F3F5;
+    border: 1px solid #21135C;
 }
 
 
@@ -1995,15 +2011,15 @@ section#contact form {
 }
 
 section#contact #contact-warning {
-    color: white;
-    background: #ee3a22;
+    color: #F3F3F5;
+    background: #DD3367;
     padding: 20px 25px;
     margin-bottom: 30px;
 }
 
 section#contact #contact-success {
-    color: #000;
-    background: #111;
+    color: #21135C;
+    background: #21135C;
     padding: 20px 25px;
     margin-bottom: 30px;
 }
@@ -2058,9 +2074,15 @@ section#contact #map {
 	---------------------------------------------------*/
 
 #footer {
-    font-size: 13px;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #F3F3F5;
+
+    font-size: 16px;
     line-height: 24px;
-    padding: 30px 0;
+    padding: 0px;
 }
 
 #footer p {
@@ -2307,7 +2329,7 @@ html[xmlns] .slides {
 /* FlexSlider for TypeFolio
 	*********************************/
 .flexslider {
-    background: white;
+    background:  #F3F3F5;
     position: relative;
     zoom: 1;
     overflow: hidden;
@@ -2414,8 +2436,8 @@ html[xmlns] .slides {
 }
 
 .flex-control-paging li a.flex-active {
-    background: black;
-    background: rgba(0, 0, 0, 0.9);
+    background: #21135C;
+    background: #22135cde;
     cursor: default;
 }
 
@@ -2492,7 +2514,7 @@ html[xmlns] .slides {
 .item-nav.flex-active {}
 
 .item-nav.flex-active h4 {
-    color: white;
+    color: #F3F3F5;
 }
 
 .item-nav.flex-active span.category {
