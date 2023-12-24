@@ -1,0 +1,355 @@
+/*---------------------------------------------------
+			3.5 Works
+	---------------------------------------------------*/
+.page{
+ /* max-width: 986px;  */
+ margin: 120px auto 0;
+  width: 90%;
+}
+
+
+#works {
+    margin: 80px 0 80px;
+}
+
+#works .item {
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+#works .item h3 {
+    color: #555;
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+#works a.permalink:hover h3 {
+    color: #111;
+}
+
+#works .item span.category {
+    color: #ccc;
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+}
+
+#works a.permalink:hover span.category {
+    color: #000;
+}
+
+#works .item p.excerpt {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 10px;
+}
+
+/* Stackgrid */
+#works.stackgrid .item {
+    width: 25%;
+    float: left;
+    margin-bottom: 0;
+    position: relative;
+}
+
+#works.stackgrid .item img {
+    width: 100%;
+}
+
+#works.stackgrid .item thumbnail {
+    width: 100%;
+}
+
+
+
+img:hover {
+    opacity: 0.7;
+}
+
+
+/*		thumbnail:hover {
+			opacity: 0.5;
+		}*/
+
+@media screen and (min-width: 1600px) {
+    #works.stackgrid .item {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1599px) {
+    #works.stackgrid .item {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 959px) {
+    #works.stackgrid .item {
+        width: 33.333333%;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    #works.stackgrid .item {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    #works.stackgrid .item {
+        width: 100%;
+    }
+}
+
+#works.stackgrid .item .box-desc {
+    padding: 15px 30px;
+    text-align: center;
+}
+
+#works.stackgrid.images-only {
+    /* Navigation */
+    margin-top: 0;
+}
+
+#works.stackgrid.images-only .item .box-desc {
+    display: none;
+    text-align: left;
+    padding: 25px 30px;
+    background: url('../images/alpha/bg_alpha60.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#works.stackgrid.images-only .item .box-desc h3 {
+    color: #F3F3F5;
+}
+
+#works.stackgrid.images-only .nav-pages {
+    margin-top: 0;
+}
+
+#works.stackgrid.images-only .nav-pages a.link-prev,
+#works.stackgrid.images-only .nav-pages a.link-next {
+    border-top: none;
+}
+
+#works.stackgrid.images-only a.link-prev,
+#works.stackgrid.images-only a.link-next {
+    border-top: none;
+}
+
+#works.stackgrid .item .box-desc span.category {
+    margin-bottom: 2px;
+}
+
+
+
+/* Single */
+#works.single {}
+
+#works.single img {
+    margin-bottom: 20px;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+#works.single thumbnail {
+    margin-bottom: 20px;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+#works .item.lightbox {
+    /** Default lightbox to hidden */
+    display: none;
+
+    /** Position and style */
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#works .item.lightbox img {
+    /** Pad the lightbox image */
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 2%;
+}
+
+#works .item.lightbox:target {
+    /** Remove default browser outline */
+    outline: none;
+
+    /** Unhide lightbox **/
+    display: block;
+}
+
+/*#works.single iframe { 
+			margin-bottom: 20px;
+			min-width: 100%;
+			max-width: 100%;
+    		height: 100%;
+		}*/
+
+#works.single box-content {
+    padding-top: 30px;
+}
+
+#works.single .box-content h4 {
+    /*color: #595959;*/
+    color: #000000;
+    /*font-family: 'Roboto Slab', Georgia, serif;*/
+    font-family: 'Gotham SSm B', Arial, sans-serif;
+    /*font-weight: bold;*/
+    font-size: 30px;
+
+    /*font-size: 26px;*/
+    /*line-height: 40px;
+		font-weight: 300;*/
+    margin-top: 12px;
+    margin-bottom: 8px;
+    line-height: 30px;
+    font-weight: 110;
+}
+
+
+
+
+@media screen and (max-width: 959px) {
+
+    #works.single p {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    @media (max-width: 479px) {
+        #works.single .box-content h4 {
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        #works.single p {
+            font-size: 13px;
+            line-height: 18px;
+        }
+    }
+
+    #works.single box-content {
+        border-top: none;
+    }
+}
+
+.box-info{
+/*     border: solid 1px blue;*/
+    padding-bottom: 1.5em;
+}
+
+.box-info h4 {
+    font-size: 1em;
+    color:#21135C;
+    font-weight:480;
+    
+/*    line-height: 2em;*/
+    padding-top:0.4em;
+    padding-bottom:0.4em;
+        
+    
+/*    letter-spacing: 3px;*/
+}
+#works.single .box-info {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 22px;
+   
+}
+
+#works.single .box-info p.project-desc {
+    color: #ddd;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: : 0;
+
+}
+
+#works.single .box-info h4 {
+    font-size: 11px;
+    line-height: 21px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+#works.single .box-info h4.border-top {
+    padding-top: 10px;
+}
+
+#works.single .box-info p {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    #works.single .box-info p {
+        font-size: 12px;
+        line-height: 24px;
+    }
+}
+
+/*---works--*/
+
+#works.single blockquote {
+    margin-bottom: 15px;
+}
+
+#works.single blockquote p {
+    color: #BBB;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 36px;
+    line-height: 60px;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+#works.single blockquote footer {
+    color: #000;
+    font-size: 12px;
+    line-height: 22px;
+    font-style: italic;
+    display: inline-block;
+    margin-top: 2px;
+    padding-top: 4px;
+    border-top: 1px solid #000;
+}
+
+@media screen and (max-width: 959px) {
+    #works.single blockquote p {
+        font-size: 22px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    #works.single blockquote p {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    #works.single blockquote footer {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}

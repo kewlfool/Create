@@ -94,6 +94,8 @@ function draw() {
     }
     endShape();
   }
+
+  // noLoop();
 }
 
 function changeBG() {

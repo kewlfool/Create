@@ -27,7 +27,7 @@ class Particle {
   }
 
   show() {
-    stroke(80, 1);
+    stroke(250, 10);
     // stroke(random(10, 255), random(10, 255), random(100, 255), 9);
     strokeWeight(1);
 

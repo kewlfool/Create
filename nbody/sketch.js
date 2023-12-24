@@ -1,60 +1,76 @@
-// Mutual Attract// The Nature of Code
-
-let movers = [];
-let sun;
-
+var al = [];
 function setup() {
-  createCanvas(800, 800);
-  for (let i = 0; i < 5; i++) {
-    let pos = p5.Vector.random2D();
-    let vel = pos.copy();
-    // let vel = p5.Vector.random2D();
-    vel.setMag(5);
-    // vel.setMag(random(10, 15));
-    // pos.setMag(random(200, 350));
-    // vel.rotate(PI / 2);
-    let m = 10;
-    // let m = random(10, 15);
-    movers[i] = new Mover(pos.x, pos.y, vel.x, vel.y, m);
-  }
-  sun = new Mover(0, 0, 0, 0, 500);
-  // movers[0] = new Mover(300, 200, 0, 5, 10);
-  // movers[1] = new Mover(100, 200, 0, -5, 10);
-  // movers[2] = new Mover(200, 300, -5, 0, 10);
-  // movers[3] = new Mover(200, 100, 5, 0, 10);
-  // movers[3] = new Mover(200, 100, 5, 0, 10);
-  background(0);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(0);
-  translate(width / 2, height / 2);
+  background("#ffffff");
 
-  // movers[0].attract(movers[1]);
-  // movers[0].attract(movers[2]);
-
-  // movers[1].attract(movers[0]);
-  // movers[1].attract(movers[2]);
-
-  // movers[2].attract(movers[1]);
-  // movers[2].attract(movers[0]);
-  // stroke(255);
-  // line(movers[0].pos.x, movers[0].pos.y, movers[1].pos.x, movers[1].pos.y);
-
-  for (let mover of movers) {
-    sun.attract(mover);
-    for (let other of movers) {
-      if (mover !== other) {
-        mover.attract(other);
-        // stroke(255);
-        // line(mover.pos.x, mover.pos.y, other.pos.x, other.pos.y);
-      }
+  /*
+   * Creation of dotted background
+   */
+  stroke("#bdbdbd"); // Dot color
+  strokeWeight(3); // Dot thickness
+  for (var i = 0; i < width; i = i + 80) {
+    for (var j = 0; j < height; j = j + 80) {
+      point(i, j);
     }
   }
 
-  for (let mover of movers) {
-    mover.update();
-    mover.show();
+  strokeWeight(1); // Restore strokeWeight
+
+  /*
+   * Array to store reference to each Rays() object
+   */
+  al.push(new Rays());
+
+  for (var i = 0; i < al.length; i++) {
+    var r = al[i];
+    r.applyForce(new p5.Vector(random(-0.5, 0.5), random(0.01, 0.05)));
+    r.render();
+    // if (r.isDead()) al.shift();
   }
-  // sun.show();
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+function Rays() {
+  this.counter = 0;
+  this.position = new p5.Vector(mouseX, mouseY);
+  this.velocity = new p5.Vector(0, 0);
+  this.acceleration = new p5.Vector(0, 0);
+  this.lifeSpan = 1;
+}
+
+/*
+ * Takes p5.Vector object as the initial force
+ * This force provides the required acceleration
+ */
+Rays.prototype.applyForce = function (force) {
+  acceleration = force;
+};
+
+/*
+ * Displays line on the document
+ */
+Rays.prototype.render = function () {
+  this.lifeSpan -= 0.04;
+
+  var c = color("rgba(237, 34, 93, " + this.lifeSpan + ")");
+  stroke(c);
+  line(this.position.x, this.position.y, pmouseX, pmouseY);
+};
+
+/*
+ * Helps in determining whether the shift()
+ * method should be called or not
+ *
+ * [This method is important, if not used the array will
+ * be filled infinitely]
+ */
+Rays.prototype.isDead = function () {
+  if (this.lifeSpan < 0.1) return true;
+  else return false;
+};

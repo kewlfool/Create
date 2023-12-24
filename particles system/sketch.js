@@ -11,19 +11,21 @@ function mousePressed() {
 }
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(windowWidth, windowHeight);
   noise = new OpenSimplexNoise(Date.now());
+  attractor = new Attractor(windowWidth / 2, windowHeight / 2, 40);
 }
 
 function draw() {
   background(0);
 
-  let n = noise.noise3D(xoff, yoff, zoff);
+  // let n = noise.noise3D(xoff, yoff, zoff);
 
   for (let mover of movers) {
     mover.update();
     mover.show();
-    // attractor.attract(mover);
+    // mover.edges();
+    attractor.attract(mover);
   }
 
   // particles.push(new Particle(200, 20));

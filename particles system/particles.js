@@ -106,12 +106,12 @@ class Mover {
     stroke(255);
     strokeWeight(2);
     fill(255, 100);
+
     push();
     translate(this.pos.x, this.pos.y);
     this.angle = this.vel.heading();
     rotate(this.angle);
     triangle(-this.r, -this.r / 2, -this.r, this.r / 2, this.r, 0);
-
     //line(0,0,this.r,0);
     //ellipse(0, 0, this.r * 2);
     pop();

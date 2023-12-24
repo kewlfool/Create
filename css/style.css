@@ -1,7 +1,6 @@
 /*--------------------------------------------------------------------------
    
-	LESS-based responsive grid system
-	0. YUI Library is used for CSS reset (http://yuilibrary.com/yui/docs/cssreset/)
+	0. 
 	1. Body
 	2. Typography
 	3. Pages
@@ -33,6 +32,7 @@ body {
     font-size: 14px;
     line-height: 22px;
     -webkit-font-smoothing: antialiased;
+    color: #21135C;
     /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
 }
@@ -166,7 +166,7 @@ h2
 }
 
 h3{
-   color:#21135C; 
+   
     font-size: 16px;
     font-weight: bold;
 }
@@ -318,9 +318,9 @@ thumbnail {
 
 /* Used frequently to apply a light border on top */
 .border-top {
-/*    border-top: 0px solid #f5f5f5;*/
-/*    padding-bottom: 0.6em;*/
-/*    padding-top: 0.6em;*/
+   border-top: 0px solid #f5f5f5;
+   padding-bottom: 0.6em;
+   padding-top: 0.6em;
 }
 
 
@@ -634,26 +634,20 @@ span.required {
 /*---------------------------------------------------
 			3.1 Navigation
 	---------------------------------------------------*/
-.topbar {
-    display: flex;
-/*    border: solid 3px yellow;*/
-    padding: 20px;
-/*    padding-right: 20px*/
-    
-}
 
 #header-site-title {
     font-size: 16px;
     font-weight: 500;
-    height: 30px;
+    /* height: 30px; */
 /*    width: 30vw;*/
 /*    border-bottom: solid 1px red ;;*/
 /*        border: solid 3px red ;*/
 
 }
-#header-nav-wrapper{
+
+#header-nav-wrapper {
    /* margin-left: auto; */
-/*    border: solid 3px green;  */
+   border: solid 3px green; 
 }
 
 
@@ -1004,11 +998,11 @@ a:hover {
     z-index: 1;
     top: 0;
     width: 100%;
-    background-color: #F3F3F5;
+    /* background-color: #F3F3F5; */
 
     font-size: 16px;
     line-height: 24px;
-    padding: 0px;
+    padding: 15px;
 }
 
 #header h1 {
@@ -1171,15 +1165,23 @@ a:hover {
 			3.5 Works
 	---------------------------------------------------*/
 
+#works {
+    margin: 80px 0 80px;
+}
+
 #works .item {
-    margin-bottom: 40px;
+    margin: 0px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #works .item h3 {
-    color: #555;
-    font-size: 12px;
+    color: #21135C;
+    font-size: 14px;
     line-height: 22px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 #works a.permalink:hover h3 {
@@ -1187,8 +1189,9 @@ a:hover {
 }
 
 #works .item span.category {
-    color: #ccc;
+    color: #22135cb4;
     display: block;
+
     font-size: 12px;
     line-height: 18px;
     margin-bottom: 10px;
@@ -2078,11 +2081,12 @@ section#contact #map {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #F3F3F5;
+    /* background-color: #F3F3F5; */
 
     font-size: 16px;
-    line-height: 24px;
-    padding: 0px;
+    /* line-height: 24px; */
+
+    padding: 15px;
 }
 
 #footer p {
