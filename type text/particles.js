@@ -2,9 +2,9 @@ class Particle {
   constructor(x = random(width), y = random(height)) {
     this.pos = createVector(x, y);
     this.dir = createVector(x, y);
-    this.vel = createVector(x, y);
-    // this.vel = p5.Vector.random2D();
-    // this.vel.mult(1);
+    // this.vel = createVector(x, y);
+    this.vel = p5.Vector.random2D();
+    this.vel.mult(4);
     this.acc = createVector(0, 0);
     this.maxSpeed = 0.001;
     this.maxForce = 0.2;
@@ -60,15 +60,13 @@ class Particle {
   }
 
   update() {
-    var angle =
-      noise(this.pos.x / noiseScale, this.pos.y / noiseScale) * PI * 300;
     // var angle = noise(this.xoff, this.yoff) * TWO_PI;
-    this.dir.x = cos(angle);
-    this.dir.y = sin(angle);
-    this.vel = this.dir.copy();
+    // this.dir.x = cos(angle);
+    // this.dir.y = sin(angle);
+    // this.vel = this.dir.copy();
 
-    this.vel.mult(this.maxSpeed);
-    // this.vel.add(this.acc);
+    this.vel.limit(this.maxSpeed);
+    this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.set(0, 0);
 
@@ -121,8 +119,8 @@ class Dot extends Particle {
     // this.target = createVector(x, y);
     // this.vel = p5.Vector.random2D();
 
-    this.maxSpeed = 16;
-    this.maxForce = 4;
+    this.maxSpeed = 19;
+    this.maxForce = 8;
   }
 
   behavior() {

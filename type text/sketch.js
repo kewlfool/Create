@@ -1,5 +1,5 @@
 let font;
-let noiseScale = 0.005;
+// let noiseScale = 0.005;
 let dots = [];
 
 function setup() {
@@ -21,7 +21,7 @@ function draw() {
 
   for (let i = 0; i < dots.length; i++) {
     let dot = dots[i];
-    // dot.behavior();
+    dot.behavior();
     dot.update();
     dot.show();
   }
