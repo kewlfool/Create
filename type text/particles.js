@@ -120,7 +120,7 @@ class Dot extends Particle {
     // this.vel = p5.Vector.random2D();
 
     this.maxSpeed = 19;
-    this.maxForce = 8;
+    this.maxForce = 4;
   }
 
   behavior() {

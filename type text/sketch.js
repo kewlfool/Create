@@ -5,7 +5,7 @@ let dots = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  let points = font.textToPoints("hey yooo!!", 100, windowHeight / 2, 50, {
+  let points = font.textToPoints("wavy hair, dont care", 150, windowHeight / 2, 90, {
     sampleFactor: 0.99,
   });
 
