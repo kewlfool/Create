@@ -1,12 +1,12 @@
 var bgcolor;
 var button;
 
-let inc = 0.1;
+let inc = 0.0251;
 
 let start = 0;
 
 let zoff = 0;
-let zinc = 0.2;
+let zinc = 0.02;
 
 var cols, rows;
 let scl = 20;
