@@ -1,15 +1,18 @@
 class Particle {
   constructor(x = random(width), y = random(height)) {
     this.pos = createVector(x, y);
+    this.dir = createVector(x, y);
+    // this.vel = createVector(x, y);
     this.vel = p5.Vector.random2D();
     this.vel.mult(4);
     this.acc = createVector(0, 0);
-    this.maxSpeed = 5;
+    this.maxSpeed = 0.001;
     this.maxForce = 0.2;
     this.r = 4;
 
     this.wanderTheta = PI / 2;
     this.xoff = 0;
+    this.yoff = 0;
 
     this.target = createVector(x, y);
 
@@ -52,13 +55,93 @@ class Particle {
     return this.seek(target).mult(-1);
   }
 
+  wander() {
+    let wanderPoint = this.vel.copy();
+    wanderPoint.setMag(10);
+    wanderPoint.add(this.pos);
+
+    let wanderRadius = 6;
+    // noFill();
+    // stroke(255);
+    // circle(wanderPoint.x, wanderPoint.y, 5);
+    // line(this.pos.x, this.pos.y, wanderPoint.x, wanderPoint.y);
+
+    let theta = this.wanderTheta + this.vel.heading();
+
+    let x = wanderRadius * cos(theta);
+    let y = wanderRadius * sin(theta);
+    wanderPoint.add(x, y);
+    // fill(0, 255, 0);
+    // noStroke();
+    // circle(wanderPoint.x, wanderPoint.y, 16);
+
+    // stroke(255);
+    // line(this.pos.x, this.pos.y, wanderPoint.x, wanderPoint.y);
+
+    let steer = wanderPoint.sub(this.pos);
+    steer.setMag(this.maxForce);
+    this.applyForce(steer);
+
+    let displaceRange = 0.3;
+    this.wanderTheta += random(-displaceRange, displaceRange);
+  }
+
+  wanderNoise() {
+    let angle = noise(this.xoff) * TWO_PI * 2;
+    let steer = p5.Vector.fromAngle(angle);
+
+    steer.setMag(this.maxForce);
+    this.applyForce(steer);
+
+    this.xoff += 0.02;
+  }
+
+  pursue(target) {
+    let target2 = target.pos.copy();
+    let prediction = target.vel.copy();
+
+    prediction.mult(10);
+    target2.add(prediction);
+    fill(0, 255, 0);
+    // circle(target2.pos.x, target2.pos.y, 16);
+    return this.seek(target2);
+  }
+
+  evade(target) {
+    let pursuit = this.pursue(target);
+    pursuit.mult(-1);
+    return pursuit;
+  }
+
   applyForce(force) {
     this.acc.add(force);
   }
 
+  trail() {
+    this.currentPath.push(this.pos.copy());
+    // Count positions
+    let total = 0;
+    for (let path of this.paths) {
+      total += path.length;
+    }
+
+    // total > 5000 || (total > 10 && millis() > 3000)
+    if (total > 10) {
+      this.paths[0].shift();
+      if (this.paths[0].length === 0) {
+        this.paths.shift();
+      }
+    }
+  }
+
   update() {
-    this.vel.add(this.acc);
+    // var angle = noise(this.xoff, this.yoff) * TWO_PI;
+    // this.dir.x = cos(angle);
+    // this.dir.y = sin(angle);
+    // this.vel = this.dir.copy();
+
     this.vel.limit(this.maxSpeed);
+    this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.set(0, 0);
 
@@ -100,6 +183,49 @@ class Particle {
       pop();
     }
   }
+
+  edgesBounce() {
+    if (this.pos.y >= height - this.r) {
+      this.pos.y = height - this.r;
+      this.vel.y *= -1;
+    }
+
+    if (this.pos.x >= width - this.r) {
+      this.pos.x = width - this.r;
+      this.vel.x *= -1;
+    }
+
+    if (this.pos.y <= this.r) {
+      this.pos.y = this.r;
+      this.vel.y *= -1;
+    } else if (this.pos.x <= this.r) {
+      this.pos.x = this.r;
+      this.vel.x *= -1;
+    }
+  }
+
+  edges() {
+    let hitEdge = false;
+    if (this.pos.x > width + this.r) {
+      this.pos.x = -this.r;
+      hitEdge = true;
+    } else if (this.pos.x < -this.r) {
+      this.pos.x = width + this.r;
+      hitEdge = true;
+    }
+    if (this.pos.y > height + this.r) {
+      this.pos.y = -this.r;
+      hitEdge = true;
+    } else if (this.pos.y < -this.r) {
+      this.pos.y = height + this.r;
+      hitEdge = true;
+    }
+
+    if (hitEdge) {
+      this.currentPath = [];
+      this.paths.push(this.currentPath);
+    }
+  }
 }
 
 class Dot extends Particle {
@@ -111,8 +237,8 @@ class Dot extends Particle {
     // this.target = createVector(x, y);
     // this.vel = p5.Vector.random2D();
 
-    this.maxSpeed = 16;
-    this.maxForce = 4;
+    this.maxSpeed = 19;
+    this.maxForce = 3.4;
   }
 
   behavior() {

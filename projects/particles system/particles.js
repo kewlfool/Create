@@ -21,6 +21,10 @@ class Particle {
       this.pos.y = height - this.r;
       this.vel.y *= -1;
     }
+    if (this.pos.y <= this.r) {
+      this.pos.y = this.r;
+      this.vel.y *= -1;
+    }
 
     if (this.pos.x >= width - this.r) {
       this.pos.x = width - this.r;
@@ -71,12 +75,10 @@ class Attractor {
   }
 }
 
-class Mover {
+class Mover extends Particle {
   constructor(x, y, m) {
-    this.pos = createVector(x, y);
-    this.vel = p5.Vector.random2D();
+    super(x, y);
     this.vel.mult(5);
-    this.acc = createVector(0, 0);
     this.mass = m;
     this.r = sqrt(this.mass) * 2;
 
@@ -116,4 +118,52 @@ class Mover {
     //ellipse(0, 0, this.r * 2);
     pop();
   }
+}
+class Dot extends Particle {
+  constructor(x, y) {
+    super(x, y);
+    this.start = createVector(random(width), random(height));
+    this.pos = this.start.copy();
+    // this.target = this;
+    // this.target = createVector(x, y);
+    // this.vel = p5.Vector.random2D();
+
+    this.maxSpeed = 19;
+    this.maxForce = 3.4;
+  }
+
+  behavior() {
+    var arrive = this.arrive(this.target);
+    let mouse = createVector(mouseX, mouseY);
+    var flee = this.flee(mouse);
+
+    // arrive.mult(1.8);   // main set of values
+    // flee.mult(1.7);   // main set of values
+
+    arrive.mult(1.8);
+    flee.mult(1.7);
+
+    this.applyForce(arrive);
+    this.applyForce(flee);
+  }
+
+  show() {
+    stroke(222);
+    strokeWeight(this.r / 2);
+    point(this.pos.x, this.pos.y);
+  }
+
+  // flee(target) {
+  //   let desired = p5.Vector.sub(target, this.pos);
+  //   let d = desired.mag();
+  //   if (d < 50) {
+  //     desired.setMag(this.maxspeed);
+  //     desired.mult(-1);
+  //     let steer = p5.Vector.sub(desired, this.vel);
+  //     steer.limit(this.maxforce);
+  //     return steer;
+  //   } else {
+  //     return createVector(0, 0);
+  //   }
+  // }
 }

@@ -24,8 +24,8 @@ function draw() {
   for (let mover of movers) {
     mover.update();
     mover.show();
-    // mover.edges();
-    attractor.attract(mover);
+    mover.edges();
+    // attractor.attract(mover);
   }
 
   // particles.push(new Particle(200, 20));

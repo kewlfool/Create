@@ -131,7 +131,7 @@ class Particle {
 }
 
 class Circle {
-  constructor(x, y) {
+  constructor(x = 0, y = 0) {
     this.pos = createVector(x * scl, y * scl);
 
     this.nextState = random(2) > 1;
@@ -139,11 +139,11 @@ class Circle {
 
     this.nbr = [];
 
-    // this.vel = p5.Vector.random2D();
-    // this.vel.mult(0.15);
-    // this.maxSpeed = 4;
-    // this.acc = createVector(0, -0.3);
-    // this.maxForce = 1;
+    this.vel = p5.Vector.random2D();
+    this.vel.mult(0.15);
+    this.maxSpeed = 4;
+    this.acc = createVector(0, -0.3);
+    this.maxForce = 1;
   }
 
   addNeighbor(cell) {
