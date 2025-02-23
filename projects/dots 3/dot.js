@@ -1,7 +1,7 @@
 class Dot {
   constructor() {
     // this.r = pow(random(1), 0.2) * 0.3 * width; // radius random distribution to have less dots near the center
-    this.r = random(1) * width * 0.2;
+    this.r = random(1) * height * 0.2;
     this.angle = random(TWO_PI);
     this.x0 = this.r * cos(this.angle);
     this.y0 = this.r * sin(this.angle);
@@ -13,6 +13,13 @@ class Dot {
       3.5,
       0
     );
+    // this.displacementFactor = map(
+    //   dist(this.x0, this.y0, 0, 0),
+    //   0,
+    //   0.3 * width,
+    //   3.5,
+    //   0
+    // );
     this.seed = random(10, 1000);
   }
 
@@ -72,7 +79,7 @@ function connect() {
 
       let delayFactor = (distanceToCenter * globalDelayFactor) / width; // strength of the delay effect explained later
       // let delayFactor = 0;
-      console.log(delayFactor);
+      // console.log(delayFactor);
 
       for (let k = 0; k <= numberOfDotsOnCurve; k++) {
         let q = map(k, 0, numberOfDotsOnCurve, 0, 1); // parameter in [0,1], indicates where we are on the connection curve

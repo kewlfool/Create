@@ -42,11 +42,7 @@ function draw() {
 }
 
 function boxs(x, y, scl, scl, steps) {
-  push();
-  strokeWeight(5);
-  pop();
   stroke(222, 0, 0);
-
   noFill();
   strokeWeight(1);
   // let sqSize = scl - 10;

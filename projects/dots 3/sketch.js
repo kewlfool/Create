@@ -4,8 +4,8 @@ let points = [];
 let noise = 0;
 let t = 0;
 let count = 15;
-let numberOfDotsOnCurve = 150; // connection drawing quality
-let noiseLoopRadius = 0.51; // noise circle radius
+let numberOfDotsOnCurve = 200; // connection drawing quality
+let noiseLoopRadius = 0.5; // noise circle radius
 let globalDelayFactor = 1; // delay effect parameter
 let swmax = 2.2; // maximum stroke weight
 let D = 100; // global displacement intensity factor
@@ -28,9 +28,10 @@ function setup() {
 
 function draw() {
   background(bgcolor);
+  // frameRate(1);
 
   t = (mouseX * 1.0) / width;
-  // t += 0.001;
+  // t += 0.005;
   c = (mouseY * 1.0) / height;
 
   // console.log(t);
@@ -45,7 +46,7 @@ function draw() {
   // Fader value ranges from 1 to 0 to 1 with mouseX
   // var fader = (abs(mouseX - windowWidth / 2) / (windowWidth / 2)) * 1;
 
-  // console.log(fader);
+  console.log(t);
 
   for (let i = 0; i < dots.length; i++) {
     dots[i].show(t);

@@ -32,9 +32,9 @@ let inc = 0.031;
 let xoff = 0;
 let zoff = 0;
 let zinc = 0.05;
+let phase = 0.013;
 let nR = 2;
 
-// let phase = 0;
 let bobs = [];
 let n = 10;
 
@@ -46,7 +46,7 @@ function setup() {
   noiseS = new OpenSimplexNoise(Date.now());
   if (record) capturer.start();
 
-  slider = createSlider(0, 10, 0.6, 0.1);
+  slider = createSlider(0, 10, 3, 0.1);
 }
 
 function draw() {
@@ -74,7 +74,7 @@ function draw() {
   // console.log(percent);
   // console.log(counter / totalFrames);
   // console.log(cos((TWO_PI * 1.0 * (frameCount - 1)) / numFrames));
-  // counter++;
+  counter++;
 }
 
 function draw_(percent) {
@@ -114,27 +114,28 @@ function other() {
     let a = map(x, 0, width, 0, TWO_PI);
 
     // Use circle-based noise mapping for xoff and yoff
-    xoff = map(cos(a + counter), -1, 1, 0, noiseMax);
-    yoff = map(sin(a + counter), -1, 1, 0, noiseMax);
+    xoff = map(cos(a + counter * phase), -1, 1, 0, noiseMax);
+    yoff = map(sin(a + counter * phase), -1, 1, 0, noiseMax);
 
     // // Sharpen the falloff (Gaussian-like curve)
-    // let baseR = noise(xoff, yoff, zoff);
+    // let baseR = noise(xoff, yoff);
     // let distanceFromCenter = abs(x - width / 2) / (width / 2); // 0 at center, 1 at edges
     // let amplification = exp(-pow(distanceFromCenter * 4, 2)); // Exponential falloff
     // let r = map(baseR * amplification, 0, 1, height / 2, 0);
 
-    //OG method of calculation
+    // // No method. just looping noise values
+    // let r = map(noise(xoff, yoff), 0, 1, height / 3, 0);
+
+    // OG method of calculation
     let amplification = transition(x);
-    let r = -amplification * map(noise(xoff, yoff, zoff), 0, 1, height / 2, 0);
+    let r = amplification * map(noise(xoff, yoff, zoff), 0, 1, height * 0.4, 0);
 
-    let y = 200 + r;
-
+    let y = h * 0.7 - r;
     vertex(x, y);
   }
   endShape();
 
-  zoff += 0.002124;
-  counter -= 0.017;
+  // zoff += 0.002124;
   // noLoop();
 }
 
